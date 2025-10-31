@@ -430,21 +430,21 @@ function FormSubmission() {
                         fullWidth
                         value={transfer.amount}
                         onChange={handleTransferChange(index, 'amount')}
-                        placeholder="金额"
+                        placeholder={t.transferAmountPlaceholder}
                       />
                       <TextField
                         label={t.paymentMethod}
                         fullWidth
                         value={transfer.paymentMethod}
                         onChange={handleTransferChange(index, 'paymentMethod')}
-                        placeholder="支付方式"
+                        placeholder={t.paymentMethodPlaceholder}
                       />
                       <TextField
                         label={t.payeeInfo}
                         fullWidth
                         value={transfer.payeeInfo}
                         onChange={handleTransferChange(index, 'payeeInfo')}
-                        placeholder="收款方信息"
+                        placeholder={t.payeeInfoPlaceholder}
                       />
                     </Stack>
                   </CardContent>

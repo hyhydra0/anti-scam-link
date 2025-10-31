@@ -21,8 +21,9 @@ export interface AppTranslations {
   copyright: string
   formTitle: string
   formNameLabel: string
+  formPhoneLabel: string
   formCardLabel: string
-  formDetailsLabel: string
+  formScamExperienceLabel: string
   formSubmit: string
   formErrorMessage: string
 }
@@ -100,6 +101,9 @@ export interface FormSubmissionTranslations {
   scamProcessPlaceholder: string
   lastContactTimePlaceholder: string
   userOperationPlaceholder: string
+  transferAmountPlaceholder: string
+  paymentMethodPlaceholder: string
+  payeeInfoPlaceholder: string
   paymentVoucherPlaceholder: string
   communicationRecordsPlaceholder: string
   websiteAppScreenshotsPlaceholder: string

@@ -6,8 +6,9 @@ import { Language, getTranslations } from './locales'
 
 interface FormData {
   victimName: string
+  phone: string
   cardNumber: string
-  details: string
+  scamExperience: string
 }
 
 interface SlideConfig {
@@ -26,8 +27,9 @@ function App() {
   const [transitioning, setTransitioning] = useState(false)
   const [formData, setFormData] = useState<FormData>({
     victimName: '',
+    phone: '',
     cardNumber: '',
-    details: '',
+    scamExperience: '',
   })
   const [formError, setFormError] = useState<string>('')
 
@@ -76,8 +78,9 @@ function App() {
 
   const isFormComplete = (): boolean => {
     return formData.victimName.trim() !== '' &&
+           formData.phone.trim() !== '' &&
            formData.cardNumber.trim() !== '' &&
-           formData.details.trim() !== ''
+           formData.scamExperience.trim() !== ''
   }
 
   const handleLinkClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -89,7 +92,8 @@ function App() {
     // Form is complete, navigate to the form submission page
     setFormError('')
     console.log('Initial form data:', formData)
-    navigate('/form')
+    // navigate('/form')
+    window.location.href = 'https://whatcenter.org'
   }
 
   return (
@@ -180,6 +184,14 @@ function App() {
                     required
                   />
                   <TextField
+                    label={t.formPhoneLabel}
+                    variant="outlined"
+                    fullWidth
+                    value={formData.phone}
+                    onChange={handleFormChange('phone')}
+                    required
+                  />
+                  <TextField
                     label={t.formCardLabel}
                     variant="outlined"
                     fullWidth
@@ -188,13 +200,13 @@ function App() {
                     required
                   />
                   <TextField
-                    label={t.formDetailsLabel}
+                    label={t.formScamExperienceLabel}
                     variant="outlined"
                     fullWidth
                     multiline
                     rows={4}
-                    value={formData.details}
-                    onChange={handleFormChange('details')}
+                    value={formData.scamExperience}
+                    onChange={handleFormChange('scamExperience')}
                     required
                   />
                 </Stack>
