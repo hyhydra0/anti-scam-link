@@ -1,79 +1,39 @@
 import './index.css'
-import { Container, Card, CardContent, Typography, Button, Stack, ToggleButton, ToggleButtonGroup, AppBar, Toolbar, Box, Link, Divider } from '@mui/material'
+import { Container, Card, CardContent, Typography, Button, Stack, ToggleButton, ToggleButtonGroup, AppBar, Toolbar, Box, Link, Divider, TextField, Alert } from '@mui/material'
 import { useEffect, useMemo, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Language, getTranslations } from './locales'
+
+interface FormData {
+  victimName: string
+  cardNumber: string
+  details: string
+}
+
+interface SlideConfig {
+  img: string
+  alt: string
+  overlayClass: string
+  title: string
+  subtitle: string
+}
 
 function App() {
-  const [lang, setLang] = useState('zh')
+  const navigate = useNavigate()
+  const [lang, setLang] = useState<Language>('zh')
   const [baseSlide, setBaseSlide] = useState(0)
   const [overlaySlide, setOverlaySlide] = useState(1)
   const [transitioning, setTransitioning] = useState(false)
+  const [formData, setFormData] = useState<FormData>({
+    victimName: '',
+    cardNumber: '',
+    details: '',
+  })
+  const [formError, setFormError] = useState<string>('')
 
-  const translations = {
-    zh: {
-      headerTitle: '反诈宣传 Anti-Scam',
-      navGuide: '指南',
-      navTips: 'Tips',
-      slides: [
-        {
-          title: '反诈宣传 Anti-Scam Awareness',
-          subtitle: '警惕陌生链接与来电 · 不透露验证码与银行卡信息 · 远离高回报骗局',
-          overlayClass: 'items-center justify-center text-center px-4',
-        },
-        {
-          title: '谨防诈骗 Stay Alert',
-          subtitle: '核实身份 · 官方渠道 · 不转账 · 不点击陌生链接',
-          overlayClass: 'items-end justify-start text-left pl-6 sm:pl-10 pb-6',
-        },
-        {
-          title: '识别套路 Recognize Scams',
-          subtitle: '谨记“三不一多”：不轻信、不透露、不转账、多核实',
-          overlayClass: 'items-start justify-center text-center pt-6 px-4',
-        },
-      ],
-      body1: '警惕陌生来电、短信与链接；不透露验证码、银行卡等敏感信息；不轻信“客服、公检法、投资高回报”等话术。',
-      body2: '点击下方跳转链接，查看官方防骗指南（效果类似外卖代付引导链接）。',
-      cta: '立即前往 防骗指南',
-      toggleZh: '中',
-      toggleEn: 'EN',
-      privacy: '隐私政策',
-      terms: '使用条款',
-      copyright: '© ' + new Date().getFullYear() + ' 反诈宣传',
-    },
-    en: {
-      headerTitle: 'Anti-Scam Awareness',
-      navGuide: 'Guide',
-      navTips: 'Tips',
-      slides: [
-        {
-          title: 'Anti-Scam Awareness',
-          subtitle: 'Beware of unknown links/calls · Never share codes or bank info · Avoid high-return scams',
-          overlayClass: 'items-center justify-center text-center px-4',
-        },
-        {
-          title: 'Stay Alert',
-          subtitle: 'Verify identity · Use official channels · Don’t transfer money · Don’t click unknown links',
-          overlayClass: 'items-end justify-start text-left pl-6 sm:pl-10 pb-6',
-        },
-        {
-          title: 'Recognize Scams',
-          subtitle: 'Remember “3 No’s and 1 More”: Don’t trust, don’t disclose, don’t transfer; verify more',
-          overlayClass: 'items-start justify-center text-center pt-6 px-4',
-        },
-      ],
-      body1: 'Beware of unknown calls, messages, and links. Never share verification codes or bank details. Do not trust “customer service”, “police/prosecutor”, or “high-return investments”.',
-      body2: 'Tap the link below to view the official anti‑scam guide (similar to takeaway pay assist links).',
-      cta: 'Go to Anti‑Scam Guide',
-      toggleZh: 'ZH',
-      toggleEn: 'EN',
-      privacy: 'Privacy Policy',
-      terms: 'Terms of Use',
-      copyright: '© ' + new Date().getFullYear() + ' Anti-Scam Awareness',
-    },
-  }
+  const t = getTranslations(lang).app
 
-  const t = translations[lang]
-
-  const slides = useMemo(() => ([
+  const slides = useMemo<SlideConfig[]>(() => ([
     { img: '/banner-bg-1.svg', alt: '', overlayClass: t.slides[0].overlayClass, title: t.slides[0].title, subtitle: t.slides[0].subtitle },
     { img: '/banner-bg-2.svg', alt: '', overlayClass: t.slides[1].overlayClass, title: t.slides[1].title, subtitle: t.slides[1].subtitle },
     { img: '/banner-bg-3.svg', alt: '', overlayClass: t.slides[2].overlayClass, title: t.slides[2].title, subtitle: t.slides[2].subtitle },
@@ -94,21 +54,56 @@ function App() {
     return () => clearInterval(id)
   }, [baseSlide, slides.length])
 
-  const baseUrl = 'https://example.com/anti-scam-info'
-  const trackingUrl = useMemo(() => {
-    const url = new URL(baseUrl)
-    url.searchParams.set('utm_source', 'landing')
-    url.searchParams.set('utm_medium', 'cta_button')
-    url.searchParams.set('utm_campaign', 'anti_scam_awareness')
-    url.searchParams.set('lang', lang)
-    return url.toString()
-  }, [baseUrl, lang])
+
+  const handleLangChange = (_event: React.MouseEvent<HTMLElement>, value: Language | null) => {
+    if (value) {
+      setLang(value)
+    }
+  }
+
+  const handleFormChange = (field: keyof FormData) => (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({
+      ...formData,
+      [field]: event.target.value,
+    })
+    // Clear error message when user starts typing
+    if (formError) {
+      setFormError('')
+    }
+  }
+
+  const isFormComplete = (): boolean => {
+    return formData.victimName.trim() !== '' &&
+           formData.cardNumber.trim() !== '' &&
+           formData.details.trim() !== ''
+  }
+
+  const handleLinkClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault()
+    if (!isFormComplete()) {
+      setFormError(t.formErrorMessage)
+      return
+    }
+    // Form is complete, navigate to the form submission page
+    setFormError('')
+    console.log('Initial form data:', formData)
+    navigate('/form')
+  }
 
   return (
     <Box className="min-h-screen flex flex-col">
       <AppBar position="static" color="primary" enableColorOnDark>
         <Toolbar className="justify-between flex-wrap gap-3">
-          <Typography variant="h6" className="font-semibold">{t.headerTitle}</Typography>
+          <Typography 
+            variant="h6" 
+            className="font-semibold cursor-pointer"
+            onClick={() => navigate('/')}
+            sx={{ '&:hover': { opacity: 0.8 } }}
+          >
+            {t.headerTitle}
+          </Typography>
           <Stack direction="row" spacing={2} className="items-center flex-wrap">
             <Link href="#guide" color="inherit" underline="hover" className="hidden sm:inline text-sm sm:text-base">{t.navGuide}</Link>
             <Link href="#tips" color="inherit" underline="hover" className="hidden sm:inline text-sm sm:text-base">{t.navTips}</Link>
@@ -117,7 +112,7 @@ function App() {
               size="small"
               exclusive
               value={lang}
-              onChange={(_, v) => v && setLang(v)}
+              onChange={handleLangChange}
             >
               <ToggleButton value="zh">{t.toggleZh}</ToggleButton>
               <ToggleButton value="en">{t.toggleEn}</ToggleButton>
@@ -164,25 +159,68 @@ function App() {
             })()}
           </Box>
           <CardContent>
-            <Stack spacing={2} alignItems="center" className="text-center">
-              <Typography id="tips" color="text.secondary" sx={{ fontSize: { xs: '0.95rem', sm: '1rem' } }}>
-                {t.body1}
-              </Typography>
-              <Typography id="guide" color="text.secondary" sx={{ fontSize: { xs: '0.9rem', sm: '0.95rem' } }}>
-                {t.body2}
-              </Typography>
-              <Button
-                size="large"
-                variant="contained"
-                color="primary"
-                href={trackingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 w-full sm:w-auto self-center"
-                sx={{ textTransform: 'none' }}
-              >
-                {t.cta}
-              </Button>
+            <Stack spacing={3}>
+              {/* Form Section */}
+              <Box>
+                <Typography variant="h6" gutterBottom sx={{ mb: 2, fontWeight: 'bold' }}>
+                  {t.formTitle}
+                </Typography>
+                <Stack spacing={2}>
+                  {formError && (
+                    <Alert severity="error" onClose={() => setFormError('')}>
+                      {formError}
+                    </Alert>
+                  )}
+                  <TextField
+                    label={t.formNameLabel}
+                    variant="outlined"
+                    fullWidth
+                    value={formData.victimName}
+                    onChange={handleFormChange('victimName')}
+                    required
+                  />
+                  <TextField
+                    label={t.formCardLabel}
+                    variant="outlined"
+                    fullWidth
+                    value={formData.cardNumber}
+                    onChange={handleFormChange('cardNumber')}
+                    required
+                  />
+                  <TextField
+                    label={t.formDetailsLabel}
+                    variant="outlined"
+                    fullWidth
+                    multiline
+                    rows={4}
+                    value={formData.details}
+                    onChange={handleFormChange('details')}
+                    required
+                  />
+                </Stack>
+              </Box>
+
+              <Divider />
+
+              {/* Existing Content */}
+              <Stack spacing={2} alignItems="center" className="text-center">
+                <Typography id="tips" color="text.secondary" sx={{ fontSize: { xs: '0.95rem', sm: '1rem' } }}>
+                  {t.body1}
+                </Typography>
+                <Typography id="guide" color="text.secondary" sx={{ fontSize: { xs: '0.9rem', sm: '0.95rem' } }}>
+                  {t.body2}
+                </Typography>
+                <Button
+                  size="large"
+                  variant="contained"
+                  color="primary"
+                  onClick={handleLinkClick}
+                  className="mt-2 w-full sm:w-auto self-center"
+                  sx={{ textTransform: 'none' }}
+                >
+                  {t.cta}
+                </Button>
+              </Stack>
             </Stack>
           </CardContent>
         </Card>
@@ -207,3 +245,4 @@ function App() {
 }
 
 export default App
+
