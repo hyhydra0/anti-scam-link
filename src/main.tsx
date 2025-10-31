@@ -10,7 +10,7 @@ createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/form" element={<FormSubmission />} />
+        {/* <Route path="/form" element={<FormSubmission />} /> */}
       </Routes>
     </BrowserRouter>
   </StrictMode>,
