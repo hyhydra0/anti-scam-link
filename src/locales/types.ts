@@ -1,4 +1,4 @@
-export type Language = 'zh' | 'en'
+export type Language = 'zh-cn' | 'zh-tw' | 'zh-hk' | 'en' | 'ja' | 'ko' | 'es' | 'fr' | 'de' | 'it' | 'pt' | 'ru' | 'ar' | 'th' | 'vi' | 'nl' | 'pl' | 'tr' | 'id' | 'ms'
 
 export interface Slide {
   title: string
@@ -111,8 +111,62 @@ export interface FormSubmissionTranslations {
   otherEvidencePlaceholder: string
 }
 
+export interface PowerOfAttorneyTranslations {
+  headerTitle: string
+  toggleZh: string
+  toggleEn: string
+  privacy: string
+  terms: string
+  copyright: string
+  documentTitle: string
+  principalInfo: string
+  principalFullName: string
+  principalNationality: string
+  principalPassportNumber: string
+  principalNationalId: string
+  principalAddress: string
+  principalPhone: string
+  principalEmail: string
+  attorneyInfo: string
+  attorneyFullName: string
+  attorneyLawFirm: string
+  attorneyBarLicense: string
+  attorneyAddress: string
+  attorneyPhone: string
+  attorneyEmail: string
+  powersGranted: string
+  powerDraftDocuments: string
+  powerSubmitApplications: string
+  powerNegotiations: string
+  powerClaimActions: string
+  powerReceiveFunds: string
+  powerOther: string
+  termOfAuthority: string
+  termFrom: string
+  termTo: string
+  termDescription: string
+  principalDeclaration: string
+  declaration1: string
+  declaration2: string
+  declaration3: string
+  declaration3Part1: string
+  declaration3Part2: string
+  declaration3Part3: string
+  declaration3Part4: string
+  signatures: string
+  principalSignature: string
+  principalDate: string
+  attorneySignature: string
+  attorneyDate: string
+  importantNotes: string
+  print: string
+  download: string
+  submit: string
+}
+
 export interface Translations {
   app: AppTranslations
   formSubmission: FormSubmissionTranslations
+  powerOfAttorney: PowerOfAttorneyTranslations
 }
 

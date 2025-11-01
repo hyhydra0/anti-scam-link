@@ -21,18 +21,17 @@ import {
   FormControlLabel,
   AppBar,
   Toolbar,
-  ToggleButton,
-  ToggleButtonGroup,
   Link,
 } from '@mui/material'
 import { Add as AddIcon, Delete as DeleteIcon } from '@mui/icons-material'
 import { useNavigate } from 'react-router-dom'
 import ImageUpload from './ImageUpload'
-import { Language, getTranslations } from './locales'
+import { getTranslations } from './locales'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker'
 import { DatePickerLocalization } from './DatePickerLocalization'
 import dayjs, { Dayjs } from 'dayjs'
+import { useLanguage } from './useLanguage'
 
 interface TransferRecord {
   date: string
@@ -79,17 +78,11 @@ interface FormSubmissionData {
 function FormSubmission() {
   const navigate = useNavigate()
   const [activeStep, setActiveStep] = useState(0)
-  const [lang, setLang] = useState<Language>('zh')
+  const { lang } = useLanguage()
 
   const t = getTranslations(lang).formSubmission
   
   const steps = [t.stepBasicInfo, t.stepScamDetails, t.stepTransferRecords, t.stepEvidence]
-
-  const handleLangChange = (_event: React.MouseEvent<HTMLElement>, value: Language | null) => {
-    if (value) {
-      setLang(value)
-    }
-  }
   const [formData, setFormData] = useState<FormSubmissionData>({
     victimName: '',
     gender: '',
@@ -182,7 +175,7 @@ function FormSubmission() {
   const handleSubmit = () => {
     console.log('Form submitted:', formData)
     // Handle final submission here
-    alert(lang === 'zh' ? '表单提交成功！' : 'Form submitted successfully!')
+    alert(lang.startsWith('zh') ? '表单提交成功！' : 'Form submitted successfully!')
     navigate('/')
   }
 
@@ -554,16 +547,6 @@ function FormSubmission() {
               {t.headerTitle}
             </Typography>
             <Stack direction="row" spacing={2} className="items-center flex-wrap">
-              <ToggleButtonGroup
-                color="secondary"
-                size="small"
-                exclusive
-                value={lang}
-                onChange={handleLangChange}
-              >
-                <ToggleButton value="zh">{t.toggleZh}</ToggleButton>
-                <ToggleButton value="en">{t.toggleEn}</ToggleButton>
-              </ToggleButtonGroup>
             </Stack>
           </Toolbar>
         </AppBar>

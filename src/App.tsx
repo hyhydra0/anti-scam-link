@@ -1,8 +1,9 @@
 import './index.css'
-import { Container, Card, CardContent, Typography, Button, Stack, ToggleButton, ToggleButtonGroup, AppBar, Toolbar, Box, Link, Divider, TextField, Alert } from '@mui/material'
+import { Container, Card, CardContent, Typography, Button, Stack, AppBar, Toolbar, Box, Link, Divider, TextField, Alert } from '@mui/material'
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Language, getTranslations } from './locales'
+import { getTranslations } from './locales'
+import { useLanguage } from './useLanguage'
 
 interface FormData {
   victimName: string
@@ -21,7 +22,7 @@ interface SlideConfig {
 
 function App() {
   const navigate = useNavigate()
-  const [lang, setLang] = useState<Language>('zh')
+  const { lang } = useLanguage()
   const [baseSlide, setBaseSlide] = useState(0)
   const [overlaySlide, setOverlaySlide] = useState(1)
   const [transitioning, setTransitioning] = useState(false)
@@ -56,13 +57,6 @@ function App() {
     return () => clearInterval(id)
   }, [baseSlide, slides.length])
 
-
-  const handleLangChange = (_event: React.MouseEvent<HTMLElement>, value: Language | null) => {
-    if (value) {
-      setLang(value)
-    }
-  }
-
   const handleFormChange = (field: keyof FormData) => (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -89,11 +83,10 @@ function App() {
       setFormError(t.formErrorMessage)
       return
     }
-    // Form is complete, navigate to the form submission page
+    // Form is complete, navigate to the power of attorney page
     setFormError('')
     console.log('Initial form data:', formData)
-    // navigate('/form')
-    window.location.href = 'https://whatcenter.org'
+    navigate('/power-of-attorney')
   }
 
   return (
@@ -111,16 +104,6 @@ function App() {
           <Stack direction="row" spacing={2} className="items-center flex-wrap">
             <Link href="#guide" color="inherit" underline="hover" className="hidden sm:inline text-sm sm:text-base">{t.navGuide}</Link>
             <Link href="#tips" color="inherit" underline="hover" className="hidden sm:inline text-sm sm:text-base">{t.navTips}</Link>
-            <ToggleButtonGroup
-              color="secondary"
-              size="small"
-              exclusive
-              value={lang}
-              onChange={handleLangChange}
-            >
-              <ToggleButton value="zh">{t.toggleZh}</ToggleButton>
-              <ToggleButton value="en">{t.toggleEn}</ToggleButton>
-            </ToggleButtonGroup>
           </Stack>
         </Toolbar>
       </AppBar>
