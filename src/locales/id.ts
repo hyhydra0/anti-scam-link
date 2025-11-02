@@ -53,6 +53,7 @@ export const id: Translations = {
     stepBack: 'Kembali',
     stepNext: 'Berikutnya',
     stepSubmit: 'Kirim',
+    // Step 1
     victimInfo: 'Informasi Korban',
     victimName: 'Nama Korban',
     gender: 'Jenis Kelamin',
@@ -72,6 +73,7 @@ export const id: Translations = {
     identityCompany: 'Perusahaan',
     identityOrganization: 'Organisasi',
     identityUnknown: 'Tidak Diketahui',
+    // Step 2
     scamProcessAndDetails: 'Proses dan Detail Penipuan',
     scamMethod: 'Metode Penipuan',
     timeline: 'Linimasa',
@@ -81,6 +83,7 @@ export const id: Translations = {
     scamTactics: 'Taktik dan Alasan Penipuan',
     scamReason: 'Alasan apa yang digunakan pihak lain untuk membuat Anda percaya dan mentransfer uang?',
     userOperation: 'Operasi Anda',
+    // Step 3
     transferRecords: 'Catatan Transfer',
     addTransfer: 'Tambah Catatan Transfer',
     sequenceNumber: 'Nomor Urut',
@@ -90,6 +93,7 @@ export const id: Translations = {
     payeeInfo: 'Nama dan Nomor Akun Penerima',
     totalLoss: 'Total Kerugian',
     operation: 'Operasi',
+    // Step 4
     evidenceTypes: 'Jenis Bukti',
     paymentVoucher: 'Bukti Pembayaran',
     communicationRecords: 'Catatan Komunikasi',

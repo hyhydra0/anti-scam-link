@@ -53,6 +53,7 @@ export const fr: Translations = {
     stepBack: 'Retour',
     stepNext: 'Suivant',
     stepSubmit: 'Soumettre',
+    // Step 1
     victimInfo: 'Informations de la Victime',
     victimName: 'Nom de la Victime',
     gender: 'Genre',
@@ -72,6 +73,7 @@ export const fr: Translations = {
     identityCompany: 'Entreprise',
     identityOrganization: 'Organisation',
     identityUnknown: 'Inconnu',
+    // Step 2
     scamProcessAndDetails: 'Processus et Détails de l\'Arnaque',
     scamMethod: 'Méthode d\'Arnaque',
     timeline: 'Chronologie',
@@ -81,6 +83,7 @@ export const fr: Translations = {
     scamTactics: 'Tactiques et Raisons de l\'Arnaque',
     scamReason: 'Quelle raison l\'autre partie a-t-elle utilisée pour vous faire croire et transférer de l\'argent?',
     userOperation: 'Votre Opération',
+    // Step 3
     transferRecords: 'Enregistrements de Transfert',
     addTransfer: 'Ajouter un Enregistrement de Transfert',
     sequenceNumber: 'Numéro de Séquence',
@@ -90,6 +93,7 @@ export const fr: Translations = {
     payeeInfo: 'Nom et Numéro de Compte du Bénéficiaire',
     totalLoss: 'Perte Totale',
     operation: 'Opération',
+    // Step 4
     evidenceTypes: 'Types de Preuves',
     paymentVoucher: 'Justificatif de Paiement',
     communicationRecords: 'Enregistrements de Communication',

@@ -53,6 +53,7 @@ export const zhTw: Translations = {
     stepBack: '上一步',
     stepNext: '下一步',
     stepSubmit: '提交',
+    // Step 1
     victimInfo: '受害人資訊',
     victimName: '受害人姓名',
     gender: '性別',
@@ -72,6 +73,7 @@ export const zhTw: Translations = {
     identityCompany: '公司',
     identityOrganization: '組織',
     identityUnknown: '不明',
+    // Step 2
     scamProcessAndDetails: '詐騙經過與細節',
     scamMethod: '詐騙方式',
     timeline: '時間線',
@@ -81,6 +83,7 @@ export const zhTw: Translations = {
     scamTactics: '詐騙話術和理由',
     scamReason: '對方用了什麼理由讓您相信並轉帳?',
     userOperation: '您的操作',
+    // Step 3
     transferRecords: '轉帳記錄',
     addTransfer: '添加轉帳記錄',
     sequenceNumber: '序號',
@@ -90,6 +93,7 @@ export const zhTw: Translations = {
     payeeInfo: '收款方姓名及帳號',
     totalLoss: '總計損失',
     operation: '操作',
+    // Step 4
     evidenceTypes: '證據類型',
     paymentVoucher: '支付憑證',
     communicationRecords: '溝通記錄',

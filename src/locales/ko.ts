@@ -53,6 +53,7 @@ export const ko: Translations = {
     stepBack: '뒤로',
     stepNext: '다음',
     stepSubmit: '제출',
+    // Step 1
     victimInfo: '피해자 정보',
     victimName: '피해자 이름',
     gender: '성별',
@@ -72,6 +73,7 @@ export const ko: Translations = {
     identityCompany: '회사',
     identityOrganization: '조직',
     identityUnknown: '알 수 없음',
+    // Step 2
     scamProcessAndDetails: '사기 과정 및 세부사항',
     scamMethod: '사기 방법',
     timeline: '타임라인',
@@ -81,6 +83,7 @@ export const ko: Translations = {
     scamTactics: '사기 전술 및 이유',
     scamReason: '상대방이 당신을 믿게 하고 송금하게 한 이유는 무엇입니까?',
     userOperation: '당신의 조작',
+    // Step 3
     transferRecords: '송금 기록',
     addTransfer: '송금 기록 추가',
     sequenceNumber: '순서 번호',
@@ -90,6 +93,7 @@ export const ko: Translations = {
     payeeInfo: '수취인 이름 및 계좌번호',
     totalLoss: '총 손실',
     operation: '조작',
+    // Step 4
     evidenceTypes: '증거 유형',
     paymentVoucher: '결제 증빙',
     communicationRecords: '통신 기록',
