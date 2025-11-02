@@ -7,7 +7,6 @@ import { useState } from 'react'
 interface PrincipalInfo {
   fullName: string
   nationality: string
-  passportNumber: string
   nationalId: string
   address: string
   phone: string
@@ -41,7 +40,6 @@ function PowerOfAttorney() {
   const [principalInfo, setPrincipalInfo] = useState<PrincipalInfo>({
     fullName: '',
     nationality: '',
-    passportNumber: '',
     nationalId: '',
     address: '',
     phone: '',
@@ -114,13 +112,6 @@ function PowerOfAttorney() {
               label={`• ${t.principalNationality}`}
               value={principalInfo.nationality}
               onChange={(e) => setPrincipalInfo({ ...principalInfo, nationality: e.target.value })}
-              fullWidth
-              variant="standard"
-            />
-            <TextField
-              label={`• ${t.principalPassportNumber}`}
-              value={principalInfo.passportNumber}
-              onChange={(e) => setPrincipalInfo({ ...principalInfo, passportNumber: e.target.value })}
               fullWidth
               variant="standard"
             />

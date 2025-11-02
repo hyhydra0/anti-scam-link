@@ -23,8 +23,8 @@ const detectBrowserLanguage = (): Language => {
         return 'zh-hk'
       } else {
         // Default to Simplified Chinese for CN and other regions
-        return 'en'
-        // return 'zh-cn'
+        // return 'en'
+        return 'zh-cn'
       }
     case 'ja':
       return 'ja'
