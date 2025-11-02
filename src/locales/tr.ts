@@ -53,6 +53,7 @@ export const tr: Translations = {
     stepBack: 'Geri',
     stepNext: 'İleri',
     stepSubmit: 'Gönder',
+    // Step 1
     victimInfo: 'Kurban Bilgileri',
     victimName: 'Kurbanın Adı',
     gender: 'Cinsiyet',
@@ -72,6 +73,7 @@ export const tr: Translations = {
     identityCompany: 'Şirket',
     identityOrganization: 'Organizasyon',
     identityUnknown: 'Bilinmeyen',
+    // Step 2
     scamProcessAndDetails: 'Dolandırıcılık Süreci ve Detayları',
     scamMethod: 'Dolandırıcılık Yöntemi',
     timeline: 'Zaman Çizelgesi',
@@ -81,6 +83,7 @@ export const tr: Translations = {
     scamTactics: 'Dolandırıcılık Taktikleri ve Nedenleri',
     scamReason: 'Karşı taraf sizi inandırmak ve para transferi yapmaya itmek için hangi nedeni kullandı?',
     userOperation: 'Sizin İşleminiz',
+    // Step 3
     transferRecords: 'Transfer Kayıtları',
     addTransfer: 'Transfer Kaydı Ekle',
     sequenceNumber: 'Sıra Numarası',
@@ -90,6 +93,7 @@ export const tr: Translations = {
     payeeInfo: 'Alacaklı Adı ve Hesap Numarası',
     totalLoss: 'Toplam Kayıp',
     operation: 'İşlem',
+    // Step 4
     evidenceTypes: 'Delil Türleri',
     paymentVoucher: 'Ödeme Makbuzu',
     communicationRecords: 'İletişim Kayıtları',

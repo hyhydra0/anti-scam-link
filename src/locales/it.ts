@@ -53,6 +53,7 @@ export const it: Translations = {
     stepBack: 'Indietro',
     stepNext: 'Avanti',
     stepSubmit: 'Invia',
+    // Step 1
     victimInfo: 'Informazioni della Vittima',
     victimName: 'Nome della Vittima',
     gender: 'Genere',
@@ -72,6 +73,7 @@ export const it: Translations = {
     identityCompany: 'Azienda',
     identityOrganization: 'Organizzazione',
     identityUnknown: 'Sconosciuto',
+    // Step 2
     scamProcessAndDetails: 'Processo e Dettagli della Truffa',
     scamMethod: 'Metodo di Truffa',
     timeline: 'Cronologia',
@@ -81,6 +83,7 @@ export const it: Translations = {
     scamTactics: 'Tattiche e Ragioni della Truffa',
     scamReason: 'Quale ragione ha usato l\'altra parte per farti credere e trasferire denaro?',
     userOperation: 'La Tua Operazione',
+    // Step 3
     transferRecords: 'Registri di Trasferimento',
     addTransfer: 'Aggiungi Registro di Trasferimento',
     sequenceNumber: 'Numero di Sequenza',
@@ -90,6 +93,7 @@ export const it: Translations = {
     payeeInfo: 'Nome e Numero Conto del Beneficiario',
     totalLoss: 'Perdita Totale',
     operation: 'Operazione',
+    // Step 4
     evidenceTypes: 'Tipi di Prova',
     paymentVoucher: 'Giustificativo di Pagamento',
     communicationRecords: 'Registri di Comunicazione',

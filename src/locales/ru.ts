@@ -53,6 +53,7 @@ export const ru: Translations = {
     stepBack: 'Назад',
     stepNext: 'Далее',
     stepSubmit: 'Отправить',
+    // Step 1
     victimInfo: 'Информация о Пострадавшем',
     victimName: 'Имя Пострадавшего',
     gender: 'Пол',
@@ -72,6 +73,7 @@ export const ru: Translations = {
     identityCompany: 'Компания',
     identityOrganization: 'Организация',
     identityUnknown: 'Неизвестно',
+    // Step 2
     scamProcessAndDetails: 'Процесс и Детали Мошенничества',
     scamMethod: 'Метод Мошенничества',
     timeline: 'Хронология',
@@ -81,6 +83,7 @@ export const ru: Translations = {
     scamTactics: 'Тактики и Причины Мошенничества',
     scamReason: 'Какую причину использовала другая сторона, чтобы заставить вас поверить и перевести деньги?',
     userOperation: 'Ваша Операция',
+    // Step 3
     transferRecords: 'Записи о Переводах',
     addTransfer: 'Добавить Запись о Переводе',
     sequenceNumber: 'Порядковый Номер',
@@ -90,6 +93,7 @@ export const ru: Translations = {
     payeeInfo: 'Имя и Номер Счета Получателя',
     totalLoss: 'Общие Потери',
     operation: 'Операция',
+    // Step 4
     evidenceTypes: 'Типы Доказательств',
     paymentVoucher: 'Документ об Оплате',
     communicationRecords: 'Записи Связи',

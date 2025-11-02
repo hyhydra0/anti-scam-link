@@ -53,6 +53,7 @@ export const vi: Translations = {
     stepBack: 'Quay Lại',
     stepNext: 'Tiếp Theo',
     stepSubmit: 'Gửi',
+    // Step 1
     victimInfo: 'Thông Tin Nạn Nhân',
     victimName: 'Tên Nạn Nhân',
     gender: 'Giới Tính',
@@ -72,6 +73,7 @@ export const vi: Translations = {
     identityCompany: 'Công Ty',
     identityOrganization: 'Tổ Chức',
     identityUnknown: 'Không Rõ',
+    // Step 2
     scamProcessAndDetails: 'Quy Trình và Chi Tiết Lừa Đảo',
     scamMethod: 'Phương Thức Lừa Đảo',
     timeline: 'Dòng Thời Gian',
@@ -81,6 +83,7 @@ export const vi: Translations = {
     scamTactics: 'Chiến Thuật và Lý Do Lừa Đảo',
     scamReason: 'Đối phương đã sử dụng lý do gì để khiến bạn tin và chuyển tiền?',
     userOperation: 'Hoạt Động Của Bạn',
+    // Step 3
     transferRecords: 'Hồ Sơ Chuyển Tiền',
     addTransfer: 'Thêm Hồ Sơ Chuyển Tiền',
     sequenceNumber: 'Số Thứ Tự',
@@ -90,6 +93,7 @@ export const vi: Translations = {
     payeeInfo: 'Tên và Số Tài Khoản Người Nhận',
     totalLoss: 'Tổng Thiệt Hại',
     operation: 'Thao Tác',
+    // Step 4
     evidenceTypes: 'Loại Bằng Chứng',
     paymentVoucher: 'Chứng Từ Thanh Toán',
     communicationRecords: 'Hồ Sơ Liên Lạc',

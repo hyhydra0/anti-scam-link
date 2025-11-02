@@ -53,6 +53,7 @@ export const ja: Translations = {
     stepBack: '戻る',
     stepNext: '次へ',
     stepSubmit: '送信',
+    // Step 1
     victimInfo: '被害者情報',
     victimName: '被害者名',
     gender: '性別',
@@ -72,6 +73,7 @@ export const ja: Translations = {
     identityCompany: '会社',
     identityOrganization: '組織',
     identityUnknown: '不明',
+    // Step 2
     scamProcessAndDetails: '詐欺プロセスと詳細',
     scamMethod: '詐欺方法',
     timeline: 'タイムライン',
@@ -81,6 +83,7 @@ export const ja: Translations = {
     scamTactics: '詐欺の戦術と理由',
     scamReason: '相手はどのような理由であなたを信じさせ、送金させましたか?',
     userOperation: 'あなたの操作',
+    // Step 3
     transferRecords: '送金記録',
     addTransfer: '送金記録を追加',
     sequenceNumber: '順序番号',
@@ -90,6 +93,7 @@ export const ja: Translations = {
     payeeInfo: '受取人名および口座番号',
     totalLoss: '総損失',
     operation: '操作',
+    // Step 4
     evidenceTypes: '証拠タイプ',
     paymentVoucher: '支払証明書',
     communicationRecords: 'コミュニケーション記録',

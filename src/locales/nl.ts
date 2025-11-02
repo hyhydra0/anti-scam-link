@@ -53,6 +53,7 @@ export const nl: Translations = {
     stepBack: 'Terug',
     stepNext: 'Volgende',
     stepSubmit: 'Verzenden',
+    // Step 1
     victimInfo: 'Slachtofferinformatie',
     victimName: 'Naam van Slachtoffer',
     gender: 'Geslacht',
@@ -72,6 +73,7 @@ export const nl: Translations = {
     identityCompany: 'Bedrijf',
     identityOrganization: 'Organisatie',
     identityUnknown: 'Onbekend',
+    // Step 2
     scamProcessAndDetails: 'Proces en Details van Oplichting',
     scamMethod: 'Oplichtingsmethode',
     timeline: 'Tijdlijn',
@@ -81,6 +83,7 @@ export const nl: Translations = {
     scamTactics: 'Oplichtingstactieken en Redenen',
     scamReason: 'Welke reden heeft de tegenpartij gebruikt om u te laten geloven en overboeken?',
     userOperation: 'Uw Bewerking',
+    // Step 3
     transferRecords: 'Overboekingsgegevens',
     addTransfer: 'Voeg Overboekingsgegevens Toe',
     sequenceNumber: 'Volgnummer',
@@ -90,6 +93,7 @@ export const nl: Translations = {
     payeeInfo: 'Naam en Rekeningnummer Begunstigde',
     totalLoss: 'Totaal Verlies',
     operation: 'Bewerking',
+    // Step 4
     evidenceTypes: 'Bewijstypen',
     paymentVoucher: 'Betaalbewijs',
     communicationRecords: 'Communicatiegegevens',

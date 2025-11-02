@@ -53,6 +53,7 @@ export const th: Translations = {
     stepBack: 'ย้อนกลับ',
     stepNext: 'ถัดไป',
     stepSubmit: 'ส่ง',
+    // Step 1
     victimInfo: 'ข้อมูลผู้เสียหาย',
     victimName: 'ชื่อผู้เสียหาย',
     gender: 'เพศ',
@@ -72,6 +73,7 @@ export const th: Translations = {
     identityCompany: 'บริษัท',
     identityOrganization: 'องค์กร',
     identityUnknown: 'ไม่ทราบ',
+    // Step 2
     scamProcessAndDetails: 'กระบวนการและรายละเอียดการหลอกลวง',
     scamMethod: 'วิธีการหลอกลวง',
     timeline: 'ไทม์ไลน์',
@@ -81,6 +83,7 @@ export const th: Translations = {
     scamTactics: 'กลยุทธ์และเหตุผลการหลอกลวง',
     scamReason: 'ฝ่ายตรงข้ามใช้เหตุผลใดเพื่อให้คุณเชื่อและโอนเงิน?',
     userOperation: 'การดำเนินการของคุณ',
+    // Step 3
     transferRecords: 'บันทึกการโอนเงิน',
     addTransfer: 'เพิ่มบันทึกการโอนเงิน',
     sequenceNumber: 'หมายเลขลำดับ',
@@ -90,6 +93,7 @@ export const th: Translations = {
     payeeInfo: 'ชื่อและหมายเลขบัญชีผู้รับเงิน',
     totalLoss: 'ความเสียหายทั้งหมด',
     operation: 'การดำเนินการ',
+    // Step 4
     evidenceTypes: 'ประเภทหลักฐาน',
     paymentVoucher: 'เอกสารการชำระเงิน',
     communicationRecords: 'บันทึกการสื่อสาร',

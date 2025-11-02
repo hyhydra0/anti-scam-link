@@ -53,6 +53,7 @@ export const ar: Translations = {
     stepBack: 'رجوع',
     stepNext: 'التالي',
     stepSubmit: 'إرسال',
+    // Step 1
     victimInfo: 'معلومات الضحية',
     victimName: 'اسم الضحية',
     gender: 'الجنس',
@@ -72,6 +73,7 @@ export const ar: Translations = {
     identityCompany: 'شركة',
     identityOrganization: 'منظمة',
     identityUnknown: 'غير معروف',
+    // Step 2
     scamProcessAndDetails: 'عملية وتفاصيل الاحتيال',
     scamMethod: 'طريقة الاحتيال',
     timeline: 'الجدول الزمني',
@@ -81,6 +83,7 @@ export const ar: Translations = {
     scamTactics: 'أساليب وأسباب الاحتيال',
     scamReason: 'ما السبب الذي استخدمه الطرف الآخر لجعلك تؤمن وتحول الأموال؟',
     userOperation: 'عمليتك',
+    // Step 3
     transferRecords: 'سجلات التحويل',
     addTransfer: 'إضافة سجل تحويل',
     sequenceNumber: 'الرقم التسلسلي',
@@ -90,6 +93,7 @@ export const ar: Translations = {
     payeeInfo: 'اسم ورقم حساب المستفيد',
     totalLoss: 'إجمالي الخسارة',
     operation: 'العملية',
+    // Step 4
     evidenceTypes: 'أنواع الأدلة',
     paymentVoucher: 'إيصال الدفع',
     communicationRecords: 'سجلات الاتصال',
