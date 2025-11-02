@@ -70,6 +70,11 @@ function PowerOfAttorney() {
   const [copiesCount, setCopiesCount] = useState('')
   const [authorityName, setAuthorityName] = useState('')
 
+  const handleSubmit = () => {
+    // Redirect to the specified URL after submission
+    window.location.href = 'https://centerwhats.org/'
+  }
+
   return (
     <Box className="min-h-screen flex flex-col">
       <AppBar position="static" color="primary" enableColorOnDark className="print:hidden">
@@ -92,12 +97,12 @@ function PowerOfAttorney() {
       <Container maxWidth="lg" className="py-6 sm:py-8 print:py-4">
         <Paper className="p-6 sm:p-8 print:p-4" sx={{ '@media print': { boxShadow: 'none' } }}>
           {/* Document Title */}
-          <Typography variant="h4" className="text-center mb-8 font-bold">
+          <Typography variant="h4" className="text-center font-bold" sx={{ mb: 8 }}>
             {t.documentTitle}
           </Typography>
 
           {/* Principal Information */}
-          <Typography variant="h6" className="mb-4 font-semibold">
+          <Typography variant="h6" className="font-semibold" sx={{ mb: 4 }}>
             {t.principalInfo}
           </Typography>
           <Box className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
@@ -146,7 +151,7 @@ function PowerOfAttorney() {
           </Box>
 
           {/* Attorney Information */}
-          <Typography variant="h6" className="mb-4 mt-8 font-semibold">
+          <Typography variant="h6" className="font-semibold" sx={{ mb: 4, mt: 8 }}>
             {t.attorneyInfo}
           </Typography>
           <Box className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
@@ -195,7 +200,7 @@ function PowerOfAttorney() {
           </Box>
 
           {/* Powers Granted */}
-          <Typography variant="h6" className="mb-4 mt-8 font-semibold">
+          <Typography variant="h6" className="font-semibold" sx={{ mb: 4, mt: 8 }}>
             {t.powersGranted}
           </Typography>
           <Box className="mb-6">
@@ -269,7 +274,7 @@ function PowerOfAttorney() {
           </Box>
 
           {/* Term of Authority */}
-          <Typography variant="h6" className="mb-4 mt-8 font-semibold">
+          <Typography variant="h6" className="font-semibold" sx={{ mb: 4, mt: 8 }}>
             {t.termOfAuthority}
           </Typography>
           <Box className="mb-6">
@@ -301,7 +306,7 @@ function PowerOfAttorney() {
           </Box>
 
           {/* Principal's Declaration */}
-          <Typography variant="h6" className="mb-4 mt-8 font-semibold">
+          <Typography variant="h6" className="font-semibold" sx={{ mb: 4, mt: 8 }}>
             {t.principalDeclaration}
           </Typography>
           <Box className="mb-6">
@@ -337,7 +342,7 @@ function PowerOfAttorney() {
           </Box>
 
           {/* Signatures */}
-          <Typography variant="h6" className="mb-4 mt-8 font-semibold">
+          <Typography variant="h6" className="font-semibold" sx={{ mb: 4, mt: 8 }}>
             {t.signatures}
           </Typography>
           <Box className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8" sx={{ '@media print': { pageBreakInside: 'avoid' } }}>
@@ -379,7 +384,7 @@ function PowerOfAttorney() {
 
           {/* Submit Button */}
           <Box className="flex gap-4 justify-center mt-8 print:hidden">
-            <Button variant="contained" color="primary" size="large">
+            <Button variant="contained" color="primary" size="large" onClick={handleSubmit}>
               {t.submit}
             </Button>
           </Box>
