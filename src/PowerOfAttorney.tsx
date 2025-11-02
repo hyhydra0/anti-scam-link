@@ -151,7 +151,7 @@ function PowerOfAttorney() {
           </Box>
 
           {/* Attorney Information */}
-          <Typography variant="h6" className="font-semibold" sx={{ mb: 4, mt: 8 }}>
+          {/* <Typography variant="h6" className="font-semibold" sx={{ mb: 4, mt: 8 }}>
             {t.attorneyInfo}
           </Typography>
           <Box className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
@@ -197,10 +197,10 @@ function PowerOfAttorney() {
               fullWidth
               variant="standard"
             />
-          </Box>
+          </Box> */}
 
           {/* Powers Granted */}
-          <Typography variant="h6" className="font-semibold" sx={{ mb: 4, mt: 8 }}>
+          {/* <Typography variant="h6" className="font-semibold" sx={{ mb: 4, mt: 8 }}>
             {t.powersGranted}
           </Typography>
           <Box className="mb-6">
@@ -271,7 +271,7 @@ function PowerOfAttorney() {
                 />
               )}
             </Box>
-          </Box>
+          </Box> */}
 
           {/* Term of Authority */}
           <Typography variant="h6" className="font-semibold" sx={{ mb: 4, mt: 8 }}>
@@ -360,7 +360,7 @@ function PowerOfAttorney() {
                 className="w-32"
               />
             </Box>
-            <Box>
+            {/* <Box>
               <TextField
                 label={t.attorneySignature}
                 fullWidth
@@ -373,7 +373,7 @@ function PowerOfAttorney() {
                 placeholder="____/____/____"
                 className="w-32"
               />
-            </Box>
+            </Box> */}
           </Box>
 
           {/* Important Notes */}
