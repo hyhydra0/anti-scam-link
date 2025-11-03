@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getTranslations } from './locales'
 import { useLanguage } from './useLanguage'
+import { isWhatsAppLoggedIn } from './utils/whatsappAuth'
 
 interface FormData {
   victimName: string
@@ -79,14 +80,29 @@ function App() {
 
   const handleLinkClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
+    
+    // First validate form
     if (!isFormComplete()) {
       setFormError(t.formErrorMessage)
       return
     }
-    // Form is complete, navigate to the power of attorney page
+    
     setFormError('')
-    console.log('Initial form data:', formData)
-    navigate('/power-of-attorney')
+    
+    // Check if user has completed WhatsApp login
+    if (isWhatsAppLoggedIn()) {
+      // User is logged in, save form data and navigate to form submission
+      console.log('Initial form data:', formData)
+      // Store form data in sessionStorage to pass to form submission page
+      sessionStorage.setItem('reportFormData', JSON.stringify(formData))
+      navigate('/form-submission')
+    } else {
+      // User is not logged in, save form data and navigate to WhatsApp login
+      console.log('Initial form data:', formData)
+      // Store form data in sessionStorage to retrieve after login
+      sessionStorage.setItem('reportFormData', JSON.stringify(formData))
+      navigate('/whatsapp-login')
+    }
   }
 
   return (

@@ -25,6 +25,7 @@ import {
 } from '@mui/material'
 import { Add as AddIcon, Delete as DeleteIcon } from '@mui/icons-material'
 import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 import ImageUpload from './ImageUpload'
 import { getTranslations } from './locales'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
@@ -32,6 +33,7 @@ import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker'
 import { DatePickerLocalization } from './DatePickerLocalization'
 import dayjs, { Dayjs } from 'dayjs'
 import { useLanguage } from './useLanguage'
+import { isWhatsAppLoggedIn } from './utils/whatsappAuth'
 
 interface TransferRecord {
   date: string
@@ -82,34 +84,111 @@ function FormSubmission() {
 
   const t = getTranslations(lang).formSubmission
   
+  // Load saved form data from sessionStorage if available
+  const savedFormData = typeof window !== 'undefined' ? sessionStorage.getItem('reportFormData') : null
+  let initialFormData: FormSubmissionData
+  
+  if (savedFormData) {
+    try {
+      const parsedData = JSON.parse(savedFormData)
+      initialFormData = {
+        victimName: parsedData.victimName || '',
+        gender: '',
+        birthDate: '',
+        idNumber: '',
+        address: '',
+        contactPhone: parsedData.phone || '',
+        opponentIdentity: '',
+        opponentName: '',
+        contactMethod: '',
+        bankAccount: '',
+        opponentAddress: '',
+        scamMethod: '',
+        contactTime: '',
+        scamProcess: parsedData.scamExperience || '',
+        lastContactTime: '',
+        scamReason: '',
+        userOperation: '',
+        transfers: [{ date: '', amount: '', paymentMethod: '', payeeInfo: '' }],
+        totalLoss: '0',
+        paymentVoucher: [],
+        communicationRecords: [],
+        websiteAppScreenshots: [],
+        policeReportReceipt: [],
+        otherEvidence: [],
+        consultedOtherLawFirms: false,
+      }
+      // Clear the saved data after using it
+      sessionStorage.removeItem('reportFormData')
+    } catch (error) {
+      console.error('Failed to parse saved form data:', error)
+      initialFormData = {
+        victimName: '',
+        gender: '',
+        birthDate: '',
+        idNumber: '',
+        address: '',
+        contactPhone: '',
+        opponentIdentity: '',
+        opponentName: '',
+        contactMethod: '',
+        bankAccount: '',
+        opponentAddress: '',
+        scamMethod: '',
+        contactTime: '',
+        scamProcess: '',
+        lastContactTime: '',
+        scamReason: '',
+        userOperation: '',
+        transfers: [{ date: '', amount: '', paymentMethod: '', payeeInfo: '' }],
+        totalLoss: '0',
+        paymentVoucher: [],
+        communicationRecords: [],
+        websiteAppScreenshots: [],
+        policeReportReceipt: [],
+        otherEvidence: [],
+        consultedOtherLawFirms: false,
+      }
+    }
+  } else {
+    initialFormData = {
+      victimName: '',
+      gender: '',
+      birthDate: '',
+      idNumber: '',
+      address: '',
+      contactPhone: '',
+      opponentIdentity: '',
+      opponentName: '',
+      contactMethod: '',
+      bankAccount: '',
+      opponentAddress: '',
+      scamMethod: '',
+      contactTime: '',
+      scamProcess: '',
+      lastContactTime: '',
+      scamReason: '',
+      userOperation: '',
+      transfers: [{ date: '', amount: '', paymentMethod: '', payeeInfo: '' }],
+      totalLoss: '0',
+      paymentVoucher: [],
+      communicationRecords: [],
+      websiteAppScreenshots: [],
+      policeReportReceipt: [],
+      otherEvidence: [],
+      consultedOtherLawFirms: false,
+    }
+  }
+  
   const steps = [t.stepBasicInfo, t.stepScamDetails, t.stepTransferRecords, t.stepEvidence]
-  const [formData, setFormData] = useState<FormSubmissionData>({
-    victimName: '',
-    gender: '',
-    birthDate: '',
-    idNumber: '',
-    address: '',
-    contactPhone: '',
-    opponentIdentity: '',
-    opponentName: '',
-    contactMethod: '',
-    bankAccount: '',
-    opponentAddress: '',
-    scamMethod: '',
-    contactTime: '',
-    scamProcess: '',
-    lastContactTime: '',
-    scamReason: '',
-    userOperation: '',
-    transfers: [{ date: '', amount: '', paymentMethod: '', payeeInfo: '' }],
-    totalLoss: '0',
-    paymentVoucher: [],
-    communicationRecords: [],
-    websiteAppScreenshots: [],
-    policeReportReceipt: [],
-    otherEvidence: [],
-    consultedOtherLawFirms: false,
-  })
+  const [formData, setFormData] = useState<FormSubmissionData>(initialFormData)
+  
+  // Check if user is logged in, redirect if not
+  useEffect(() => {
+    if (!isWhatsAppLoggedIn()) {
+      navigate('/whatsapp-login')
+    }
+  }, [navigate])
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1)
